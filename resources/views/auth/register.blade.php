@@ -26,6 +26,34 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- Cep -->
+            <div class="mt-4">
+                <x-label for="cep" :value="__('Cep')" />
+
+                <x-input id="cep" class="block mt-1 w-full" type="text" name="cep" :value="old('cep')" required />
+            </div>
+
+            <!-- numero -->
+            <div class="mt-4">
+                <x-label for="numero" :value="__('Numero')" />
+
+                <x-input id="numero" class="block mt-1 w-full" type="text" name="numero" :value="old('numero')" required />
+            </div>
+
+            <!-- complemento -->
+            <div class="mt-4">
+                <x-label for="complemento" :value="__('Complemento')" />
+
+                <x-input id="complemento" class="block mt-1 w-full" type="text" name="complemento" :value="old('complemento')" />
+            </div>
+
+            <!-- cpf -->
+            <div class="mt-4">
+                <x-label for="cpf" :value="__('Cpf')" />
+
+                <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required />
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
