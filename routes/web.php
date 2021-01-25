@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use \App\Http\Controllers\ProdutoController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,5 +22,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::post('/produtos/novo', [ProdutoController::class, 'store'])->name('add-produto');
 
 require __DIR__.'/auth.php';
