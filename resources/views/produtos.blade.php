@@ -1,25 +1,40 @@
 <div x-data="{ add_modal: false }">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-white border-b border-gray-200">
+    <div class="my-4 bg-white overflow-hidden">
+        <div class="border-b border-gray-200">
             <!-- Listando produtos -->
-            <div class="grid grid-cols-2">
-                <div class="p-3 m-1 border rounded-lg bg-green-100 hover:bg-green-200 cursor-pointer" @click="add_modal = true">
-                    Adicionar
-                </div>
-                @foreach(Auth::user()->produtos->sortBy('tipo') as $produto)
-                    <div class="m-1 border rounded-lg">
-                        <div class="mt-3 px-2 pb-2 border-b text-center">{{ $produto->tipo }} ({{ $produto->estoque }})</div>
-                        <div class="grid grid-cols-2 text-center">
-                            <a class="bg-indigo-200 rounded-bl-lg hover:bg-indigo-300 py-2" href="">
-                                Editar
+            <table class="w-full divide-y divide-solid divide-gray-200">
+                <tr class="text-left">
+                    <th>Tipo</th>
+                    <th>Marca</th>
+                    <th>Quantidade</th>
+                    <th></th>
+                </tr>
+                <tbody class="divide-y divide-gray-200">
+
+                    @foreach(Auth::user()->produtos->sortBy('tipo') as $produto)
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2">{{ $produto->tipo }}</td>
+                            <td>{{ $produto->marca }}</td>
+                            <td>{{ $produto->estoque }}</td>
+                            <td>
+                                <a class="font-semibold hover:text-indigo-500 m-2 py-1 px-4" href="">
+                                    Editar
+                                </a>
+                                <a class="font-semibold hover:text-red-500 m-2 py-1 px-4" href="{{ route('rm-produto', $produto) }}">
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    <tr class="bg-yellow-200">
+                        <td colspan="4" class="">
+                            <a class="text-center block w-full font-semibold hover:text-indigo-500 m-2 py-1 cursor-pointer" @click="add_modal = true">
+                                Adicionar
                             </a>
-                            <a class="bg-red-200 rounded-br-lg hover:bg-red-300 py-2" href="{{ route('rm-produto', $produto) }}">
-                                Excluir
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
