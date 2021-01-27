@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ProdutoController extends Controller
 {
@@ -71,5 +72,8 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         //
+        $produto->delete();
+
+        return redirect('dashboard');
     }
 }
