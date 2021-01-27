@@ -22,6 +22,7 @@ class ReceitaFactory extends Factory
     public function definition()
     {
         return [
+            'nome' => $this->faker->word,
             'receita' => $this->faker->paragraph
         ];
     }
