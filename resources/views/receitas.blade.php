@@ -1,17 +1,29 @@
 <div x-data="{ add_modal: false }">
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-white border-b border-gray-200">
+    <div class="my-3 overflow-hidden">
+        <div class="bg-white border-gray-200">
             <!-- Listando produtos -->
-            <div class="grid grid-cols-1">
-                <div class="p-3 m-0.5 border rounded-lg bg-green-100 hover:bg-green-200 cursor-pointer" @click="add_modal = true">
-                    Adicionar
-                </div>
+            <div class="grid grid-cols-3 gap-2">
                 @foreach(Auth::user()->receitas as $receita)
-                    <div class="p-3 m-0.5 border rounded-lg hover:bg-gray-200">
-                        {{ $receita->nome }}
+                    <div class="p-3 m- border border-indigo-300 shadow-sm">
+                        <h3 class="text-lg border-b">{{ $receita->nome }}</h3>
+                        <ul class="list-disc list-inside">
+                            @foreach($receita->produtos as $i => $produto)
+                                @if($i > 2)
+                                    <li>...</li>
+                                    @break
+                                @else
+                                    <li>{{ $produto->tipo }}</li>
+                                @endif
+                            @endforeach
+                        </ul>
+                        ...
+                        <a href="#" class="block w-full text-sm text-center text-indigo-500 hover:text-indigo-800">Ver mais</a>
                     </div>
                 @endforeach
             </div>
+            <a class="bg-yellow-200 py-3 text-center block w-full font-semibold hover:text-indigo-500 my-2 cursor-pointer" @click="add_modal = true">
+                Adicionar
+            </a>
         </div>
     </div>
 

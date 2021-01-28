@@ -6,13 +6,13 @@
     </x-slot>
 
     <div class="py-8">
-        <div class="px-4 sm:px-6 lg:px-8">
-            <div class="">
-                <h2 class="block text-xl">Produtos</h2>
+        <div class="mx-4">
+            <div class="border-gray-400 border-2 shadow-md p-2">
+                <h2 class="block text-xl border-gray-400 border-b py-2">Produtos</h2>
                 @include('produtos')
             </div>
-            <div class="">
-                <h1 class="block text-center text-xl pb-3">Receitas</h1>
+            <div class="border-gray-400 border-2 border-gray-400 shadow-md p-2 mt-8">
+                <h2 class="block text-xl border-gray-400 border-b py-2">Receitas</h2>
                 @include('receitas')
             </div>
 
